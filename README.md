@@ -1,0 +1,2 @@
+# catcloud
+Asennusscripti Windowsin automaatti
