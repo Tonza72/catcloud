@@ -1,11 +1,11 @@
 Add-Type -AssemblyName PresentationFramework
 
+# Luo ikkuna
 $window = New-Object Windows.Window
 $window.Title = "CatCloud NetInstaller 🐱"
 $window.Width = 420
 $window.Height = 270
 $window.ResizeMode = "NoResize"
-
 $grid = New-Object Windows.Controls.Grid
 $window.Content = $grid
 
@@ -31,17 +31,17 @@ $button.Add_Click({
     $choice = $combo.SelectedItem
     if ($choice) {
         [Windows.MessageBox]::Show("Aloitetaan asennus: $choice", "CatCloud GUI")
-        # 👇 Tässä voit ajaa eri skriptit valinnan perusteella
+        # 🔧 Tässä lisätään asennuslogiikka myöhemmin
         switch ($choice) {
             "Windows 11 Pro + Ajurit" {
-                Write-Host "Käynnistetään Windows 11 asennus ajureineen..."
-                # Lisää asennuslogiikka tähän esim. .\Win11Setup.ps1
+                Write-Host "Käynnistetään Windows 11 + ajurit..."
+                # Esim. iwr -useb "https://..." | iex
             }
             "Windows 10 Pro + Ajurit" {
-                Write-Host "Käynnistetään Windows 10 asennus ajureineen..."
+                Write-Host "Käynnistetään Windows 10 + ajurit..."
             }
             "Windows Server 2025" {
-                Write-Host "Käynnistetään Server 2025 asennus..."
+                Write-Host "Käynnistetään Server 2025..."
             }
         }
     } else {
@@ -50,4 +50,5 @@ $button.Add_Click({
 })
 $grid.Children.Add($button)
 
+# Näytä ikkuna
 $window.ShowDialog()
